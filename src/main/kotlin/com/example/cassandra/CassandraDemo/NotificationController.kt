@@ -47,9 +47,8 @@ class NotificationController(private val repositoryNotificationsUnread: Reactive
             val readNotification = ReadNotification(notification.id, notification.userId, notification.createDate, notification.notificationType,
                     notification.notificationFunction, notification.messageHeader, notification.updtUserId, notification.updtCompanyId, notification.recordCount,
                     notification.recordDate)
-            repositoryNotificationsReadNotification.save(readNotification).doOnSuccess {
-                repositoryNotificationsUnread.delete(notification).subscribe()
-            }
+            repositoryNotificationsReadNotification.save(readNotification).subscribe()
+            repositoryNotificationsUnread.delete(notification).subscribe()
         }
     }
 
