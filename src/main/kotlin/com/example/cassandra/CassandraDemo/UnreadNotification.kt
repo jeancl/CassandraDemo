@@ -3,6 +3,7 @@ package com.example.cassandra.CassandraDemo
 import org.springframework.data.cassandra.core.cql.Ordering
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType
 import org.springframework.data.cassandra.core.mapping.Column
+import org.springframework.data.cassandra.core.mapping.Indexed
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn
 import org.springframework.data.cassandra.core.mapping.Table
 import java.util.*
@@ -13,16 +14,22 @@ data class UnreadNotification(
         val id: UUID? = UUID.randomUUID(),
         @PrimaryKeyColumn(ordinal = 0, type = PrimaryKeyType.PARTITIONED)
         val userId: String,
-        @PrimaryKeyColumn(ordinal = 2, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
+        @Column
         val createDate: Date? = Date(),
         @Column
-        val operation: Operation,
+        val notificationType: NotificationType,
         @Column
-        val type: Type,
+        val notificationFunction: NotificationFunction,
         @Column
-        val updateUserId: String,
+        val messageHeader: String,
         @Column
-        val amountOfRecords: Long,
+        val updtUserId: String,
+        @Column
+        val updtCompanyId: String,
+        @Column
+        val recordCount: Long,
+        @Column
+        val recordDate: Date,
         @Column
         val readSw: String = "N"
 )

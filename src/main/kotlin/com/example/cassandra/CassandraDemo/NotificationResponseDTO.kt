@@ -1,6 +1,7 @@
 package com.example.cassandra.CassandraDemo
 
 data class NotificationResponseDTO(
-        val notificationList: List<UnreadNotification>,
+        val unreadNotificationList: List<UnreadNotification>?,
+        val readNotificationList: List<ReadNotification>?,
         val nextPage: String
 )

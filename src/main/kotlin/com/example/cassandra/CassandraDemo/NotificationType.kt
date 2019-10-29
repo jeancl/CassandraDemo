@@ -1,6 +1,6 @@
 package com.example.cassandra.CassandraDemo
 
-enum class Operation {
+enum class NotificationType {
     ADD,
     UPDATE,
     DELETE

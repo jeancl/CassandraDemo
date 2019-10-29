@@ -1,6 +1,6 @@
 package com.example.cassandra.CassandraDemo
 
-enum class Type {
+enum class NotificationFunction {
     KEYED_ENTRY,
     BULK_UPLOAD,
     API

@@ -6,8 +6,8 @@ import reactor.core.publisher.Mono
 import java.util.*
 
 @Repository
-interface ReactiveUnreadNotificationRepository: ReactiveCrudRepository<UnreadNotification, UUID> {
+interface ReactiveReadNotificationRepository: ReactiveCrudRepository<ReadNotification, UUID> {
 
-    fun findByUserIdAndId(userId: String, id: UUID):Mono<UnreadNotification>
+    fun deleteByUserIdAndId(userId: String, id: UUID): Mono<Void>
 
 }
